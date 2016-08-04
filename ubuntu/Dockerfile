@@ -26,5 +26,5 @@ VOLUME ["/var/lib/mysql", "/var/log/mysql", "/var/log/supervisor"]
 
 EXPOSE 3306
 
-CMD ["supervisor", "-n"]
+CMD ["supervisord", "-n"]
 
