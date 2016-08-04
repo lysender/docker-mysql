@@ -13,10 +13,10 @@ RUN mkdir -p /etc/supervisor.d
 ADD ./supervisor-mysql.ini /etc/supervisor.d/mysql.ini
 
 # Configure MySQL
-RUN sed -ri 's/^user\s/#&/' /etc/mysql/my.cnf \
-    && rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql /var/run/mysqld \
-    && chown -R mysql:mysql /var/lib/mysql /var/run/mysqld \
-    && chmod 777 /var/run/mysqld
+#RUN sed -ri 's/^user\s/#&/' /etc/mysql/my.cnf \
+#    && rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql /var/run/mysqld \
+#    && chown -R mysql:mysql /var/lib/mysql /var/run/mysqld \
+#    && chmod 777 /var/run/mysqld
 
 RUN sed -Ei 's/^(bind-address|log)/#&/' /etc/mysql/my.cnf
 
