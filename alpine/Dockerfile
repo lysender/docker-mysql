@@ -1,12 +1,9 @@
-FROM ubuntu:xenial
+FROM alpine:3.4
 MAINTAINER Leonel Baer <leonel@lysender.com>
 
-# Install packages
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && \
-    apt-get -y install mysql-server \
-    supervisor && apt-get clean
+RUN apk add --no-cache mariadb supervisor
 
+ADD ./start.sh /start.sh
 ADD ./config_mysql.sh /config_mysql.sh
 ADD ./config_root_account.sh /config_root_account.sh
 ADD ./config_credentials.sh /config_credentials.sh
